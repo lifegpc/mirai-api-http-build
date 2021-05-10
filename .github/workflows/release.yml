@@ -31,7 +31,6 @@ jobs:
         run: |
           export ver=`cat version.txt`
           echo "::set-output name=ver::$ver"
-          echo "::set-env name=ver::$ver"
 
       - name: Enter mriai
         run: cd mirai-api-http

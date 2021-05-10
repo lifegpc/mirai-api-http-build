@@ -1,0 +1,24 @@
+diff --git a/gradle.properties b/gradle.properties
+index e78c289..ea2d0a5 100644
+--- a/gradle.properties
++++ b/gradle.properties
+@@ -1,5 +1,5 @@
+ # build
+-httpVersion=1.11.0
++httpVersion=1.11.8
+ # style guide
+ kotlin.code.style=official
+ # config
+diff --git a/mirai-api-http/src/main/kotlin/net/mamoe/mirai/api/http/HttpApiPluginBase.kt b/mirai-api-http/src/main/kotlin/net/mamoe/mirai/api/http/HttpApiPluginBase.kt
+index 9d056b8..ca47a67 100644
+--- a/mirai-api-http/src/main/kotlin/net/mamoe/mirai/api/http/HttpApiPluginBase.kt
++++ b/mirai-api-http/src/main/kotlin/net/mamoe/mirai/api/http/HttpApiPluginBase.kt
+@@ -19,7 +19,7 @@ import java.io.File
+ internal typealias CommandSubscriber = suspend (String, Long, Long, List<String>) -> Unit
+ 
+ object HttpApiPluginBase : KotlinPlugin(
+-    JvmPluginDescription(id = "net.mamoe.mirai-api-http", version = "1.11.0") {
++    JvmPluginDescription(id = "net.mamoe.mirai-api-http", version = "1.11.8") {
+         author("ryoii")
+         info("Mirai HTTP API Server Plugin")
+     }

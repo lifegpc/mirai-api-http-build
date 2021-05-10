@@ -32,11 +32,9 @@ jobs:
           export ver=`cat version.txt`
           echo "::set-output name=ver::$ver"
 
-      - name: Enter mriai
-        run: cd mirai-api-http
-
       - name: Patch version
         run: git apply ../commit.patch
+        working-directory: ./mirai-api-http
 
       - name: Set up JDK 11
         uses: actions/setup-java@v1
@@ -45,9 +43,11 @@ jobs:
 
       - name: Grant Execute Permission for gradlew
         run: chmod +x gradlew
+        working-directory: ./mirai-api-http
 
       - name: Build with Gradle
         run: ./gradlew buildCiJar
+        working-directory: ./mirai-api-http
 
       - name: Create Release
         id: create_release
@@ -66,6 +66,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./mirai-api-http/build/ci/mirai-api-http.jar
+          asset_path: ./mirai-api-http/mirai-api-http/build/ci/mirai-api-http.jar
           asset_name: mirai-api-http-${{ steps.ver.outputs.ver }}.mirai.jar
           asset_content_type: application/zip

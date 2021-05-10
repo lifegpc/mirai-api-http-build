@@ -1,0 +1,3 @@
+[submodule "mirai-api-http"]
+	path = mirai-api-http
+	url = https://github.com/project-mirai/mirai-api-http.git
